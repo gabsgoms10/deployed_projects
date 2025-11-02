@@ -20,7 +20,7 @@
       <li><a href="#project-2" title="Project 2: RAG API"></a></li>
       <li><a href="#project-3" title="Project 3: Classic ML"></a></li>
       <li><a href="#project-4" title="Project 4: Data API"></a></li>
-      </ul>
+    </ul>
   </nav>
 
   <section id="hero">
@@ -29,7 +29,6 @@
       <h2>Data & ML Engineer</h2>
       <p class="hero-subtitle">Companies are drowning in data they can't use. I build the systems that turn that data into measurable value.</p>
       <a href="#key-skills" class="btn">See The Proof</a>
-      
       <div class="hero-contact-links">
         <a href="https://linkedin.com/in/gabriel" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/gabsgoms10" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
@@ -43,7 +42,7 @@
 
   <section id="key-skills">
     <h2>My Engineering & AI Toolkit</h2>
-    <div class="skill-categories">
+    <div class="skill-categories animate-on-scroll">
       <div class="skill-category">
         <h3>Data Engineering</h3>
         <div class="skills-icons">
@@ -78,17 +77,16 @@
   <main>
     
     <section id="project-1" class="project-section">
-      <div class="project-content">
+      <div class="project-content animate-on-scroll">
         <div class="sticky-dashboard-layout">
           <div class="dashboard-left-sticky">
             <h2>P1: Taming 600k+ Records into a Scalable Data Lake</h2>
-            <p>Engineered an automated pipeline that transforms 600k+ chaotic Airbnb records into a reliable, query-ready data lake, unblocking all downstream analytics and ML.</p>
+            <p>Engineered an automated pipeline (Airflow, Spark, Iceberg) that transforms 600k+ chaotic Airbnb records into a reliable, query-ready data lake, unblocking all downstream analytics and ML.</p>
             <div class="project-stats">
                 <div class="stat"><span class="stat-number" data-target="600k">0</span><p class="stat-label">Records</p></div>
                 <div class="stat"><span class="stat-number" data-target="10">0</span><p class="stat-label">GB Data Lake</p></div>
-                <div class="stat"><span class="stat-value" data-target="Automated">0</span><p class="stat-label">Orchestration</p></div>
+                <div class="stat"><span class="stat-value" data-target="<0.20/h">$0</span><p class="stat-label">Custo/Hora (Spot)</p></div>
             </div>
-            
             <div class="project-tech-stack">
               <h4>Project Tech Stack:</h4>
               <div class="skills-icons-small">
@@ -97,27 +95,31 @@
                 <div class="skill-badge-small">Iceberg</div>
                 <div class="skill-badge-small">AWS S3</div>
                 <div class="skill-badge-small">Glue Catalog</div>
+                <div class="skill-badge-small">Terraform</div>
               </div>
             </div>
           </div>
-          
           <div class="dashboard-right-scrollable">
             <div class="scroll-item">
-              <h3>Business Case</h3>
-              <p>This pipeline is the foundational asset, providing a "Single Source of Truth" that reduces query time from hours to minutes and unblocks P2 & P3.</p>
+              <h3>Business Case & FinOps</h3>
+              <p>This pipeline is the foundational asset, providing a "Single Source of Truth" that reduces query time from hours to minutes. All infrastructure is deployed via Terraform and automatically torn down to control costs.</p>
               <table class="data-table">
                 <thead><tr><th>Metric</th><th>Value</th><th>Description</th></tr></thead>
                 <tbody>
                   <tr><td>RICE Score</td><td><strong>36</strong></td><td>High-impact enabler for all other projects.</td></tr>
-                  <tr><td>Est. Cost (AWS)</td><td><strong>~$50/month</strong></td><td>(S3, Glue, Spot EMR, Airflow)</td></tr>
+                  <tr><td>Est. Cost (AWS)</td><td><strong>< 0.20 USD/h</strong></td><td>(S3, Glue, Spot EMR, Airflow on ECS)</td></tr>
                 </tbody>
               </table>
             </div>
             <div class="scroll-item">
-              <h3>Architecture</h3>
-              <p>Airflow orchestrates Spark jobs to ingest data from S3, process it, and store partitioned Iceberg tables (SOR and SPEC) in the AWS Glue Catalog.</p>
+              <h3>Architecture & Connections</h3>
+              <p>Airflow (on ECS) orchestrates Spark jobs to ingest S3 data, process it, and store partitioned Iceberg tables (SOR and SPEC) in the AWS Glue Catalog.</p>
               <div class="placeholder-image">
                  <span>[Placeholder: P1 Architecture Diagram.png]</span>
+              </div>
+               <div class="project-connections">
+                <p><strong>Depends On:</strong> None</p>
+                <p><strong>Enables:</strong> Project 2 (RAG), Project 3 (ML), Project 4 (API)</p>
               </div>
             </div>
             <div class="scroll-item">
@@ -134,39 +136,45 @@
                 <span>[Placeholder: Athena Query Result Screenshot.png]</span>
               </div>
             </div>
+             <div class="scroll-item">
+              <h3>Key Technical Decisions</h3>
+              <ul class="decision-list">
+                <li><strong>Insight:</strong> 5GB of data processed in under 12 minutes.</li>
+                <li><strong>Decision:</strong> Used Iceberg for atomic transactions and schema evolution, preventing data corruption.</li>
+                <li><strong>Impact:</strong> Enabled reliable, versioned data lake that feeds all other AI/ML projects.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <section id="project-2" class="project-section">
-      <div class="project-content">
+      <div class="project-content animate-on-scroll">
         <div class="sticky-dashboard-layout">
           <div class="dashboard-left-sticky">
             <h2>P2: Turning 50k+ Documents into an Interactive RAG API</h2>
             <p>Built a modern, end-to-end ML pipeline that serves 50k+ embeddings to a high-performance RAG API, turning static data into an interactive knowledge base.</p>
             <div class="project-stats">
                 <div class="stat"><span class="stat-number" data-target="50k">0</span><p class="stat-label">Embeddings</p></div>
-                <div class="stat"><span class="stat-value" data-target="100 rps">0</span><p class="stat-label">API Performance</p></div>
-                <div class="stat"><span class="stat-value" data-target="Full">0</span><p class="stat-label">MLflow Tracking</p></div>
+                <div class="stat"><span class="stat-value" data-target="<1s">0s</span><p class="stat-label">Avg. Response</p></div>
+                <div class="stat"><span class="stat-value" data-target="IaC">0</span><p class="stat-label">Deploy (Terraform)</p></div>
             </div>
-            
             <div class="project-tech-stack">
               <h4>Project Tech Stack:</h4>
               <div class="skills-icons-small">
                 <div class="skill-badge-small">FastAPI</div>
-                <div class="skill-badge-small">Bedrock</div>
-                <div class="skill-badge-small">MLflow</div>
+                <div class="skill-badge-small">AWS Bedrock</div>
                 <div class="skill-badge-small">Vector DB</div>
-                <div class="skill-badge-small">Docker</div>
+                <div class="skill-badge-small">Docker (ECS)</div>
+                <div class="skill-badge-small">Terraform</div>
               </div>
             </div>
           </div>
-          
           <div class="dashboard-right-scrollable">
             <div class="scroll-item">
-              <h3>Business Case</h3>
-              <p>The API empowers non-technical users to "chat" with data, reducing support tickets and accelerating information retrieval.</p>
+              <h3>Business Case & FinOps</h3>
+              <p>The API empowers non-technical users to "chat" with data, reducing support tickets and accelerating information retrieval. Deployed on ECS Fargate, scaling to zero to eliminate cost during inactivity.</p>
               <table class="data-table">
                 <thead><tr><th>Metric</th><th>Value</th><th>Description</th></tr></thead>
                 <tbody>
@@ -176,11 +184,15 @@
               </table>
             </div>
             <div class="scroll-item">
-               <h3>RAG System Design</h3>
+               <h3>Architecture & Connections</h3>
                <p>The system uses a Vector DB to store embeddings. A FastAPI endpoint retrieves relevant context and feeds it, along with the user query, to a Bedrock LLM for generation.</p>
                <div class="placeholder-image">
                   <span>[Placeholder: P2 RAG System Diagram.png]</span>
                </div>
+               <div class="project-connections">
+                <p><strong>Depends On:</strong> Project 1 (Data Source)</p>
+                <p><strong>Enables:</strong> External Apps, Internal Dashboards</p>
+              </div>
             </div>
             <div class="scroll-item">
               <h3>Demonstration (API Call)</h3>
@@ -200,23 +212,30 @@
 }
               </code></pre>
             </div>
+             <div class="scroll-item">
+              <h3>Key Technical Decisions</h3>
+              <ul class="decision-list">
+                <li><strong>Insight:</strong> Response latency kept under 1 second.</li>
+                <li><strong>Decision:</strong> Chose FastAPI for its high performance and async capabilities, ideal for I/O-bound LLM calls.</li>
+                <li><strong>Impact:</strong> Created a scalable, production-ready AI service, not just a notebook experiment.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <section id="project-3" class="project-section">
-      <div class="project-content">
+      <div class="project-content animate-on-scroll">
         <div class="sticky-dashboard-layout">
           <div class="dashboard-left-sticky">
             <h2>P3: From 10,000 Reviews to Actionable Insights</h2>
-            <p>Trained a classical ML model to classify 10k+ reviews (from P1). This project demonstrates versatility in MLOps, using MLflow to manage experiments and ensure reproducibility for sentiment analysis.</p>
+            <p>Trained a classical ML model (Logistic Regression) to classify 10k+ reviews (from P1). This project demonstrates versatility in MLOps, using MLflow to manage experiments and ensure reproducibility for sentiment analysis.</p>
             <div class="project-stats">
                 <div class="stat"><span class="stat-number" data-target="10k">0</span><p class="stat-label">Reviews Analyzed</p></div>
-                <div class="stat"><span class="stat-number" data-target="5">0</span><p class="stat-label">Models (MLflow)</p></div>
-                <div class="stat"><span class="stat-value" data-target="Ready">0</span><p class="stat-label">Deploy (API)</p></div>
+                <div class="stat"><span class="stat-number" data-target="10">0</span><p class="stat-label">Experiments Tracked</p></div>
+                <div class="stat"><span class="stat-value" data-target=">85%">0%</span><p class="stat-label">Model Accuracy</p></div>
             </div>
-            
             <div class="project-tech-stack">
               <h4>Project Tech Stack:</h4>
               <div class="skills-icons-small">
@@ -224,14 +243,14 @@
                 <div class="skill-badge-small">Scikit-learn</div>
                 <div class="skill-badge-small">Python</div>
                 <div class="skill-badge-small">FastAPI</div>
+                <div class="skill-badge-small">ECS</div>
               </div>
             </div>
           </div>
-          
           <div class="dashboard-right-scrollable">
             <div class="scroll-item">
-              <h3>Business Case</h3>
-              <p>Provides a simple, low-cost model for sentiment analysis, which can be used to feed dashboards for the Product team to quickly identify areas of improvement.</p>
+              <h3>Business Case & FinOps</h3>
+              <p>Provides a simple, low-cost model for sentiment analysis, which can be used to feed dashboards for the Product team. MLflow ensures governance and reproducibility. Compute run on EC2 Spot to minimize training costs.</p>
               <table class="data-table">
                 <thead><tr><th>Metric</th><th>Value</th><th>Description</th></tr></thead>
                 <tbody>
@@ -241,11 +260,15 @@
               </table>
             </div>
             <div class="scroll-item">
-               <h3>MLOps Workflow</h3>
-               <p>The process is focused on experimentation and reproducibility, consuming data from the P1 data lake and registering all runs and artifacts in MLflow.</p>
+               <h3>Architecture & Connections</h3>
+               <p>The process is focused on experimentation and reproducibility, consuming data from the P1 data lake and registering all runs, parameters, and artifacts in MLflow.</p>
                <div class="placeholder-image">
                   <span>[Placeholder: P3 MLOps Workflow Diagram.png]</span>
                </div>
+               <div class="project-connections">
+                <p><strong>Depends On:</strong> Project 1 (Data Source)</p>
+                <p><strong>Enables:</strong> Analytics Dashboards, Future APIs</p>
+              </div>
             </div>
             <div class="scroll-item">
                <h3>Demonstration (MLflow Tracking)</h3>
@@ -254,38 +277,45 @@
                   <span>[Placeholder: MLflow Dashboard Screenshot.png]</span>
                </div>
             </div>
+             <div class="scroll-item">
+              <h3>Key Technical Decisions</h3>
+              <ul class="decision-list">
+                <li><strong>Insight:</strong> Proved that a simple, cheap classical model (>85% accuracy) was sufficient before scaling to costly LLMs.</li>
+                <li><strong>Decision:</strong> Integrated MLflow from day one, not as an afterthought, to enforce MLOps best practices.</li>
+                <li><strong>Impact:</strong> Created a fully reproducible and versioned model, ready for a production API.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <section id="project-4" class="project-section">
-      <div class="project-content">
+      <div class="project-content animate-on-scroll">
         <div class="sticky-dashboard-layout">
           <div class="dashboard-left-sticky">
             <h2>P4: The "Single Source of Truth" Data API</h2>
-            <p>Designed a central Data API (FastAPI) powered by the Iceberg catalog (from P1), creating a single, reliable source of truth for all applications (RAG, ML, Analytics).</p>
+            <p>Designed a central Data API (FastAPI) powered by the Iceberg catalog (from P1), creating a single, reliable "data product" for all applications (RAG, ML, Analytics).</p>
             <div class="project-stats">
-                <div class="stat"><span class="stat-number" data-target="100k">0</span><p class="stat-label">Queries / Day</p></div>
-                <div class="stat"><span class="stat-value" data-target="Live">0</span><p class="stat-label">Data API</p></div>
-                <div class="stat"><span class="stat-value" data-target="Unified">0</span><p class="stat-label">Catalog</p></div>
+                <div class="stat"><span class="stat-number" data-target="100k">0</span><p class="stat-label">Rows Exposed</p></div>
+                <div class="stat"><span class="stat-value" data-target="<100ms">0ms</span><p class="stat-label">Avg. Latency</p></div>
+                <div class="stat"><span class="stat-value" data-target="IaC">0</span><p class="stat-label">Deploy (Terraform)</p></div>
             </div>
-            
             <div class="project-tech-stack">
               <h4>Project Tech Stack:</h4>
               <div class="skills-icons-small">
                 <div class="skill-badge-small">FastAPI</div>
                 <div class="skill-badge-small">Iceberg</div>
+                <div class="skill-badge-small">Athena</div>
                 <div class="skill-badge-small">Terraform</div>
                 <div class="skill-badge-small">AWS ECS</div>
               </div>
             </div>
           </div>
-          
           <div class="dashboard-right-scrollable">
             <div class="scroll-item">
-              <h3>Business Case</h3>
-              <p>Ensures all applications consume consistent, reliable data, eliminating conflicts and rework. Centralizes data access logic and security.</p>
+              <h3>Business Case & FinOps</h3>
+              <p>Ensures all applications consume consistent, reliable data, eliminating conflicts and rework. Centralizes data access logic and security. Infra is destroyed automatically via Terraform to save costs.</p>
               <table class="data-table">
                  <thead><tr><th>Metric</th><th>Value</th><th>Description</th></tr></thead>
                  <tbody>
@@ -295,11 +325,15 @@
               </table>
             </div>
             <div class="scroll-item">
-               <h3>Architecture</h3>
-               <p>A FastAPI layer sits on top of the Iceberg Data Lake, providing authenticated endpoints that abstract the underlying query logic (e.g., Spark SQL, Trino).</p>
+               <h3>Architecture & Connections</h3>
+               <p>A FastAPI layer sits on top of the Iceberg Data Lake, providing authenticated endpoints that abstract the underlying query logic (e.G., Athena/Presto) from consumers.</p>
                <div class="placeholder-image">
                   <span>[Placeholder: P4 Data API Flowchart.png]</span>
                </div>
+               <div class="project-connections">
+                <p><strong>Depends On:</strong> Project 1 (Catalog)</p>
+                <p><strong>Enables:</strong> Project 2 (RAG), Dashboards</p>
+              </div>
             </div>
             <div class="scroll-item">
               <h3>Demonstration (API Call)</h3>
@@ -321,12 +355,20 @@
 }
               </code></pre>
             </div>
+            <div class="scroll-item">
+              <h3>Key Technical Decisions</h3>
+              <ul class="decision-list">
+                <li><strong>Insight:</strong> API latency kept under 100ms for P90 requests.</li>
+                <li><strong>Decision:</strong> Chose to query Iceberg via Athena/Presto for a "data serving layer" instead of a traditional DB, reducing data duplication.</li>
+                <li><strong>Impact:</strong> Proves maturity in "data product thinking" and full integration of the data catalog.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    </main>
+  </main>
 
   <footer>
     <p>Designed & Engineered by Gabriel - 2025</p>

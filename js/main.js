@@ -1,60 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- 1. Lógica dos Contadores Animados (Corrigida) ---
+  // --- 1. Lógica dos Contadores Animados (Corrigida v19) ---
   
   const startCounter = (counter) => {
     const targetText = counter.getAttribute('data-target');
     
-    // Evita reiniciar a animação
-    if (counter.innerText !== '0') return; // Se já foi animado (ou não é 0), não mexe
+    if (counter.innerText !== '0') return; 
     
-    const targetNum = parseInt(targetText.replace('k', '000').replace(' rps', ''));
-    const suffix = targetText.includes('k') ? 'k' : (targetText.includes(' rps') ? ' rps' : '');
+    const targetNum = parseInt(targetText.replace('k', '000').replace(' rps', '').replace('<', '').replace('>', '').replace('$', '').replace('/h', ''));
+    const prefix = targetText.startsWith('<') ? '<' : (targetText.startsWith('>') ? '>' : '');
+    const suffix = targetText.includes('k') ? 'k' : (targetText.includes(' rps') ? ' rps' : (targetText.includes('/h') ? '/h' : ''));
     
-    // Se não for um número (ex: "Automated", "Full", "Ready"), apenas define o valor e sai
     if (isNaN(targetNum)) {
       counter.innerText = targetText;
       return;
     }
-
-    counter.innerText = '0' + suffix; // Começa do "0k" ou "0 rps"
-    
-    // Define um incremento mínimo para números pequenos
-    let increment = Math.max(targetNum / 100, 1); // 100 etapas, ou de 1 em 1
+    counter.innerText = '0' + suffix; 
+    let increment = Math.max(targetNum / 100, 1); 
 
     const updateCounter = () => {
-      // Pega o valor numérico atual
-      const count = +counter.innerText.replace(suffix, ''); 
-
+      const count = +counter.innerText.replace(suffix, '').replace(prefix, ''); 
       if (count < targetNum) {
         let newCount = Math.ceil(count + increment);
-        if (newCount > targetNum) {
-          newCount = targetNum; // Garante que não ultrapasse
+        if (newCount > targetNum) newCount = targetNum; 
+        if (suffix === 'k' && newCount > 1000) {
+            counter.innerText = prefix + Math.round(newCount/1000) + suffix;
+        } else {
+            counter.innerText = prefix + newCount + suffix;
         }
-        counter.innerText = newCount + suffix; // "1k", "2k"... ou "100 rps"
-        setTimeout(updateCounter, 20); // Intervalo da animação
+        setTimeout(updateCounter, 20); 
       } else {
-        counter.innerText = targetText; // Define o valor final exato
+        counter.innerText = targetText; 
       }
     };
     updateCounter();
   };
   
-  // O IntersectionObserver agora observará cada .stat (o card do stat)
   const statObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Encontra todos os contadores dentro do .stat que entrou na tela
         const countersInStat = entry.target.querySelectorAll('.stat-number, .stat-value');
         countersInStat.forEach(startCounter);
-        observer.unobserve(entry.target); // Anima apenas uma vez por card .stat
+        observer.unobserve(entry.target); 
       }
     });
   }, { 
-    threshold: 0.7 // Inicia quando 70% do stat está visível
+    threshold: 0.7 
   });
-
-  // Observa cada card .stat
   document.querySelectorAll('.stat').forEach(stat => {
     statObserver.observe(stat);
   });
@@ -74,21 +66,39 @@ document.addEventListener('DOMContentLoaded', () => {
       if (entry.isIntersecting) {
         const id = entry.target.id;
         const currentLink = navMap.get(`#${id}`);
-
         navLinks.forEach(link => link.classList.remove('active'));
-        
         if (currentLink) {
           currentLink.classList.add('active');
         }
       }
     });
   }, {
-    rootMargin: '-50% 0px -50% 0px', // Ativa quando a seção está no meio da tela
+    rootMargin: '-50% 0px -50% 0px', 
     threshold: 0
   });
-
   sections.forEach(section => {
     navObserver.observe(section);
   });
+  
+  
+  // --- 3. Lógica de Animação de Scroll ---
+  
+  const animatedElements = document.querySelectorAll('.animate-on-scroll');
+  
+  const animationObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target); // Anima apenas uma vez
+      }
+    });
+  }, { 
+    threshold: 0.1 // Gatilho quando 10% do elemento está visível
+  });
 
-});
+  // Observa cada elemento marcado para animação
+  animatedElements.forEach(el => {
+    animationObserver.observe(el);
+  });
+
+}); 

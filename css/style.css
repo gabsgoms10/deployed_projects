@@ -35,11 +35,11 @@ body {
 
 /* --- Seções Principais --- */
 #hero,
-#key-skills {
+#key-skills { /* Seção #about removida daqui */
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center; /* Hero e Key Skills centralizados */
+  align-items: center; 
   flex-direction: column;
   padding: 60px 20px;
   position: relative;
@@ -147,6 +147,49 @@ table.data-table th { font-family: var(--font-mono); color: var(--text-secondary
 table.data-table td { color: var(--text-primary); font-size: 0.9em; }
 table.data-table td strong { color: var(--primary); font-family: var(--font-mono); }
 
+/* Lista de Decisões */
+.decision-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 20px;
+}
+.decision-list li {
+  font-size: 1.1em;
+  color: var(--text-secondary);
+  margin-bottom: 15px;
+  padding-left: 30px; 
+  position: relative;
+}
+.decision-list li strong {
+  color: var(--text-primary);
+}
+.decision-list li::before {
+  content: '▶'; 
+  color: var(--primary);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 0.9em;
+}
+
+/* Conexões do Projeto */
+.project-connections {
+  margin-top: 20px;
+  padding: 15px;
+  background: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+.project-connections p {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+}
+.project-connections p strong {
+  color: var(--text-primary);
+}
+
 /* --- Estilos de Hero, Skills, Contato, Footer --- */
 #hero { text-align: center; }
 #hero h1 { font-size: 5em; color: var(--text-primary); font-weight: 800; }
@@ -230,15 +273,13 @@ table.data-table td strong { color: var(--primary); font-family: var(--font-mono
   font-size: 0.85em; 
 }
 
-/* --- Rodapé (CORRIGIDO) --- */
+/* Rodapé */
 footer { 
-  text-align: center; /* Mantém o texto centralizado como fallback */
+  text-align: center;
   border-top: 1px solid var(--border-color); 
   color: var(--text-secondary); 
   font-family: var(--font-mono); 
   font-size: 0.9em; 
-  
-  /* --- CORREÇÃO: Alinhamento consistente --- */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -254,7 +295,18 @@ footer {
 .dot-nav a::after { content: attr(title); position: absolute; right: 25px; top: 50%; transform: translateY(-50%); background: var(--bg-card); color: var(--text-primary); padding: 6px 10px; border-radius: 6px; font-size: 0.9em; white-space: nowrap; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; border: 1px solid var(--border-color); }
 .dot-nav a:hover::after { opacity: 1; visibility: visible; }
 
-/* --- Responsividade (Idêntica à v11.5) --- */
+/* Animações de Scroll (v17) */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Responsividade (Sem #about) --- */
 @media (max-width: 1024px) {
   .project-content { max-width: 90%; padding: 30px; }
   
