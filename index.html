@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabriel - Data & ML Engineer</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <nav class="dot-nav">
+    <ul>
+      <li><a href="#hero" class="active" title="Home"></a></li>
+      <li><a href="#key-skills" title="Key Skills"></a></li>
+      <li><a href="#project-1" title="Project 1: Airbnb"></a></li>
+      <li><a href="#project-2" title="Project 2: RAG API"></a></li>
+      <li><a href="#project-3" title="Project 3: Classic ML"></a></li>
+      <li><a href="#project-4" title="Project 4: Data API"></a></li>
+      </ul>
+  </nav>
+
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Gabriel</h1>
+      <h2>Data & ML Engineer</h2>
+      <p class="hero-subtitle">Companies are drowning in data they can't use. I build the systems that turn that data into measurable value.</p>
+      <a href="#key-skills" class="btn">See The Proof</a>
+      
+      <div class="hero-contact-links">
+        <a href="https://linkedin.com/in/gabriel" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/gabsgoms10" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:gabriel@email.com" title="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <a href="#key-skills" class="scroll-down-indicator" title="Scroll Down">
+      <span></span>
+    </a>
+  </section>
+
+  <section id="key-skills">
+    <h2>My Engineering & AI Toolkit</h2>
+    <div class="skill-categories">
+      <div class="skill-category">
+        <h3>Data Engineering</h3>
+        <div class="skills-icons">
+          <div class="skill-badge">Spark</div>
+          <div class="skill-badge">Airflow</div>
+          <div class="skill-badge">Iceberg</div>
+          <div class="skill-badge">Python</div>
+          <div class="skill-badge">SQL</div>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h3>MLOps & AI</h3>
+        <div class="skills-icons">
+          <div class="skill-badge">MLflow</div>
+          <div class="skill-badge">Bedrock</div>
+          <div class="skill-badge">FastAPI</div>
+          <div class="skill-badge">Docker</div>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h3>Cloud & Infra</h3>
+        <div class="skills-icons">
+          <div class="skill-badge">AWS</div>
+          <div class="skill-badge">Terraform</div>
+          <div class="skill-badge">ECS</div>
+          <div class="skill-badge">S3</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    
+    <section id="project-1" class="project-section">
+      <div class="project-content">
+        <div class="sticky-dashboard-layout">
+          <div class="dashboard-left-sticky">
+            <h2>P1: Taming 600k+ Records into a Scalable Data Lake</h2>
+            <p>Engineered an automated pipeline that transforms 600k+ chaotic Airbnb records into a reliable, query-ready data lake, unblocking all downstream analytics and ML.</p>
+            <div class="project-stats">
+                <div class="stat"><span class="stat-number" data-target="600k">0</span><p class="stat-label">Records</p></div>
+                <div class="stat"><span class="stat-number" data-target="10">0</span><p class="stat-label">GB Data Lake</p></div>
+                <div class="stat"><span class="stat-value" data-target="Automated">0</span><p class="stat-label">Orchestration</p></div>
+            </div>
+            
+            <div class="project-tech-stack">
+              <h4>Project Tech Stack:</h4>
+              <div class="skills-icons-small">
+                <div class="skill-badge-small">Airflow</div>
+                <div class="skill-badge-small">Spark</div>
+                <div class="skill-badge-small">Iceberg</div>
+                <div class="skill-badge-small">AWS S3</div>
+                <div class="skill-badge-small">Glue Catalog</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="dashboard-right-scrollable">
+            <div class="scroll-item">
+              <h3>Business Case</h3>
+              <p>This pipeline is the foundational asset, providing a "Single Source of Truth" that reduces query time from hours to minutes and unblocks P2 & P3.</p>
+              <table class="data-table">
+                <thead><tr><th>Metric</th><th>Value</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr><td>RICE Score</td><td><strong>36</strong></td><td>High-impact enabler for all other projects.</td></tr>
+                  <tr><td>Est. Cost (AWS)</td><td><strong>~$50/month</strong></td><td>(S3, Glue, Spot EMR, Airflow)</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="scroll-item">
+              <h3>Architecture</h3>
+              <p>Airflow orchestrates Spark jobs to ingest data from S3, process it, and store partitioned Iceberg tables (SOR and SPEC) in the AWS Glue Catalog.</p>
+              <div class="placeholder-image">
+                 <span>[Placeholder: P1 Architecture Diagram.png]</span>
+              </div>
+            </div>
+            <div class="scroll-item">
+              <h3>Demonstration (Athena Query)</h3>
+              <p>The curated (SPEC) table is directly queryable via Athena for validation and analytics.</p>
+              <pre class="code-snippet code-sql"><code>
+<span class="code-keyword">SELECT</span> city, <span class="code-function">COUNT</span>(*) <span class="code-keyword">as</span> total_reviews
+<span class="code-keyword">FROM</span> airbnb_spec_db.reviews_spec
+<span class="code-keyword">WHERE</span> year = 2023 <span class="code-keyword">AND</span> month = 10
+<span class="code-keyword">GROUP BY</span> city
+<span class="code-keyword">ORDER BY</span> total_reviews <span class="code-keyword">DESC</span>;
+              </code></pre>
+              <div class="placeholder-image small">
+                <span>[Placeholder: Athena Query Result Screenshot.png]</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="project-2" class="project-section">
+      <div class="project-content">
+        <div class="sticky-dashboard-layout">
+          <div class="dashboard-left-sticky">
+            <h2>P2: Turning 50k+ Documents into an Interactive RAG API</h2>
+            <p>Built a modern, end-to-end ML pipeline that serves 50k+ embeddings to a high-performance RAG API, turning static data into an interactive knowledge base.</p>
+            <div class="project-stats">
+                <div class="stat"><span class="stat-number" data-target="50k">0</span><p class="stat-label">Embeddings</p></div>
+                <div class="stat"><span class="stat-value" data-target="100 rps">0</span><p class="stat-label">API Performance</p></div>
+                <div class="stat"><span class="stat-value" data-target="Full">0</span><p class="stat-label">MLflow Tracking</p></div>
+            </div>
+            
+            <div class="project-tech-stack">
+              <h4>Project Tech Stack:</h4>
+              <div class="skills-icons-small">
+                <div class="skill-badge-small">FastAPI</div>
+                <div class="skill-badge-small">Bedrock</div>
+                <div class="skill-badge-small">MLflow</div>
+                <div class="skill-badge-small">Vector DB</div>
+                <div class="skill-badge-small">Docker</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="dashboard-right-scrollable">
+            <div class="scroll-item">
+              <h3>Business Case</h3>
+              <p>The API empowers non-technical users to "chat" with data, reducing support tickets and accelerating information retrieval.</p>
+              <table class="data-table">
+                <thead><tr><th>Metric</th><th>Value</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr><td>Stakeholder</td><td>Product & Support Teams</td><td>Provides instant answers to complex questions.</td></tr>
+                  <tr><td>Est. Cost (AWS)</td><td><strong>~$100/month</strong></td><td>(ECS Fargate, Vector DB, Bedrock API)</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="scroll-item">
+               <h3>RAG System Design</h3>
+               <p>The system uses a Vector DB to store embeddings. A FastAPI endpoint retrieves relevant context and feeds it, along with the user query, to a Bedrock LLM for generation.</p>
+               <div class="placeholder-image">
+                  <span>[Placeholder: P2 RAG System Diagram.png]</span>
+               </div>
+            </div>
+            <div class="scroll-item">
+              <h3>Demonstration (API Call)</h3>
+              <p>The endpoint can be called directly to get a contextual answer.</p>
+              <pre class="code-snippet code-bash"><code>
+<span class="code-keyword">curl</span> -X POST https://my-rag-api.com/query \\
+     -H "Content-Type: application/json" \\
+     -d <span class="code-string">'{
+       "query": "What are the positive reviews for Paris?"
+     }'</span>
+              </code></pre>
+              <p>API JSON Response:</p>
+              <pre class="code-snippet code-json"><code>
+{
+  <span class="code-key">"answer"</span>: <span class="code-string">"Based on the data, positive reviews for Paris often mention 'location' and 'charm'..."</span>,
+  <span class="code-key">"source_docs"</span>: [...]
+}
+              </code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="project-3" class="project-section">
+      <div class="project-content">
+        <div class="sticky-dashboard-layout">
+          <div class="dashboard-left-sticky">
+            <h2>P3: From 10,000 Reviews to Actionable Insights</h2>
+            <p>Trained a classical ML model to classify 10k+ reviews (from P1). This project demonstrates versatility in MLOps, using MLflow to manage experiments and ensure reproducibility for sentiment analysis.</p>
+            <div class="project-stats">
+                <div class="stat"><span class="stat-number" data-target="10k">0</span><p class="stat-label">Reviews Analyzed</p></div>
+                <div class="stat"><span class="stat-number" data-target="5">0</span><p class="stat-label">Models (MLflow)</p></div>
+                <div class="stat"><span class="stat-value" data-target="Ready">0</span><p class="stat-label">Deploy (API)</p></div>
+            </div>
+            
+            <div class="project-tech-stack">
+              <h4>Project Tech Stack:</h4>
+              <div class="skills-icons-small">
+                <div class="skill-badge-small">MLflow</div>
+                <div class="skill-badge-small">Scikit-learn</div>
+                <div class="skill-badge-small">Python</div>
+                <div class="skill-badge-small">FastAPI</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="dashboard-right-scrollable">
+            <div class="scroll-item">
+              <h3>Business Case</h3>
+              <p>Provides a simple, low-cost model for sentiment analysis, which can be used to feed dashboards for the Product team to quickly identify areas of improvement.</p>
+              <table class="data-table">
+                <thead><tr><th>Metric</th><th>Value</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr><td>Stakeholder</td><td>Product Team</td><td>Enables automated sentiment tracking.</td></tr>
+                  <tr><td>Est. Cost (AWS)</td><td><strong>~$20/month</strong></td><td>(Batch inference or small API endpoint)</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="scroll-item">
+               <h3>MLOps Workflow</h3>
+               <p>The process is focused on experimentation and reproducibility, consuming data from the P1 data lake and registering all runs and artifacts in MLflow.</p>
+               <div class="placeholder-image">
+                  <span>[Placeholder: P3 MLOps Workflow Diagram.png]</span>
+               </div>
+            </div>
+            <div class="scroll-item">
+               <h3>Demonstration (MLflow Tracking)</h3>
+               <p>All experiments were logged to MLflow, tracking parameters (like `C`) and metrics (like `F1-score`) for easy comparison and model selection.</p>
+               <div class="placeholder-image">
+                  <span>[Placeholder: MLflow Dashboard Screenshot.png]</span>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="project-4" class="project-section">
+      <div class="project-content">
+        <div class="sticky-dashboard-layout">
+          <div class="dashboard-left-sticky">
+            <h2>P4: The "Single Source of Truth" Data API</h2>
+            <p>Designed a central Data API (FastAPI) powered by the Iceberg catalog (from P1), creating a single, reliable source of truth for all applications (RAG, ML, Analytics).</p>
+            <div class="project-stats">
+                <div class="stat"><span class="stat-number" data-target="100k">0</span><p class="stat-label">Queries / Day</p></div>
+                <div class="stat"><span class="stat-value" data-target="Live">0</span><p class="stat-label">Data API</p></div>
+                <div class="stat"><span class="stat-value" data-target="Unified">0</span><p class="stat-label">Catalog</p></div>
+            </div>
+            
+            <div class="project-tech-stack">
+              <h4>Project Tech Stack:</h4>
+              <div class="skills-icons-small">
+                <div class="skill-badge-small">FastAPI</div>
+                <div class="skill-badge-small">Iceberg</div>
+                <div class="skill-badge-small">Terraform</div>
+                <div class="skill-badge-small">AWS ECS</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="dashboard-right-scrollable">
+            <div class="scroll-item">
+              <h3>Business Case</h3>
+              <p>Ensures all applications consume consistent, reliable data, eliminating conflicts and rework. Centralizes data access logic and security.</p>
+              <table class="data-table">
+                 <thead><tr><th>Metric</th><th>Value</th><th>Description</th></tr></thead>
+                 <tbody>
+                   <tr><td>Stakeholder</td><td>All Data Teams</td><td>Single access point for curated data.</td></tr>
+                   <tr><td>Est. Cost (AWS)</td><td><strong>~$75/month</strong></td><td>(ECS, API Gateway)</td></tr>
+                 </tbody>
+              </table>
+            </div>
+            <div class="scroll-item">
+               <h3>Architecture</h3>
+               <p>A FastAPI layer sits on top of the Iceberg Data Lake, providing authenticated endpoints that abstract the underlying query logic (e.g., Spark SQL, Trino).</p>
+               <div class="placeholder-image">
+                  <span>[Placeholder: P4 Data API Flowchart.png]</span>
+               </div>
+            </div>
+            <div class="scroll-item">
+              <h3>Demonstration (API Call)</h3>
+              <p>The API provides simple, secure endpoints for any data consumer (e.g., a frontend app, another service) to get curated data.</p>
+              <pre class="code-snippet code-bash"><code>
+<span class="code-keyword">curl</span> -X POST https://my-data-api.com/get_data \\
+     -H "Authorization: Bearer <span class="code-string">...</span>" \\
+     -d <span class="code-string">'{
+       "dataset_name": "reviews_spec",
+       "filters": {"city": "Paris", "year": 2023}
+     }'</span>
+              </code></pre>
+              <p>API JSON Response:</p>
+              <pre class="code-snippet code-json"><code>
+{
+  <span class="code-key">"status"</span>: <span class="code-string">"success"</span>,
+  <span class="code-key">"record_count"</span>: 1250,
+  <span class="code-key">"data"</span>: [...]
+}
+              </code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    </main>
+
+  <footer>
+    <p>Designed & Engineered by Gabriel - 2025</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
