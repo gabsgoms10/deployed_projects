@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- 1. Lógica dos Contadores Animados (Corrigida v19) ---
+  // --- 1. Lógica dos Contadores Animados (Idêntica à v20) ---
   
   const startCounter = (counter) => {
     const targetText = counter.getAttribute('data-target');
-    
     if (counter.innerText !== '0') return; 
     
     const targetNum = parseInt(targetText.replace('k', '000').replace(' rps', '').replace('<', '').replace('>', '').replace('$', '').replace('/h', ''));
@@ -52,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // --- 2. Lógica da Navegação de Pontos (Dot Nav) ---
+  // --- 2. Lógica da Navegação de Pontos (Dot Nav) (Idêntica à v20) ---
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.dot-nav a');
   
@@ -81,8 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   
-  // --- 3. Lógica de Animação de Scroll ---
-  
+  // --- 3. Lógica de Animação de Scroll (Idêntica à v20) ---
   const animatedElements = document.querySelectorAll('.animate-on-scroll');
   
   const animationObserver = new IntersectionObserver((entries, observer) => {
@@ -95,10 +93,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { 
     threshold: 0.1 // Gatilho quando 10% do elemento está visível
   });
-
-  // Observa cada elemento marcado para animação
   animatedElements.forEach(el => {
     animationObserver.observe(el);
   });
+  
 
-}); 
+  // --- 4. NOVA Lógica de Título Dinâmico (v22) ---
+  
+  const originalTitle = document.title;
+  const comeBackTitle = "Come back! Let's build something.";
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      document.title = comeBackTitle;
+    } else {
+      document.title = originalTitle;
+    }
+  });
+
+});

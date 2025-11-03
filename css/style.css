@@ -35,7 +35,7 @@ body {
 
 /* --- Seções Principais --- */
 #hero,
-#key-skills { /* Seção #about removida daqui */
+#key-skills {
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -273,6 +273,12 @@ table.data-table td strong { color: var(--primary); font-family: var(--font-mono
   font-size: 0.85em; 
 }
 
+/* --- NOVO: Container do CTA --- */
+.cta-container {
+  margin-top: 30px;
+  text-align: center;
+}
+
 /* Rodapé */
 footer { 
   text-align: center;
@@ -295,7 +301,7 @@ footer {
 .dot-nav a::after { content: attr(title); position: absolute; right: 25px; top: 50%; transform: translateY(-50%); background: var(--bg-card); color: var(--text-primary); padding: 6px 10px; border-radius: 6px; font-size: 0.9em; white-space: nowrap; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; border: 1px solid var(--border-color); }
 .dot-nav a:hover::after { opacity: 1; visibility: visible; }
 
-/* Animações de Scroll (v17) */
+/* Animações de Scroll */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(20px);
@@ -306,7 +312,7 @@ footer {
   transform: translateY(0);
 }
 
-/* --- Responsividade (Sem #about) --- */
+/* --- Responsividade (Idêntica à v20) --- */
 @media (max-width: 1024px) {
   .project-content { max-width: 90%; padding: 30px; }
   
